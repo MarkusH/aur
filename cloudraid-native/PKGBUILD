@@ -2,7 +2,7 @@
 # Contributor: Florian Bausch <studium@fbausch.de>
 # Contributor: Markus Holtermann <aur@markusholtermann.eu>
 pkgname=cloudraid-native
-pkgver=0.1.1
+pkgver=0.2
 pkgrel=1
 pkgdesc='The native backend to CloudRAID'
 arch=('i686' 'x86_64')
@@ -11,7 +11,7 @@ license=('Apache')
 depends=('glibc')
 makedepends=('java-environment')
 source=("https://github.com/downloads/Markush2010/CloudRAID/$pkgname-$pkgver.tar.gz")
-md5sums=('cbef25b6b2226e36e639c01e996c5200')
+md5sums=('4d458decaf171c22544538ee006a3a5e')
 
 build() {
     cd "$srcdir/$pkgname-$pkgver/src/native"
