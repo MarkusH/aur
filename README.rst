@@ -11,3 +11,8 @@ cloudraid-native
   information (2012-02-11)
 - 0.1.1-1: minor fixes (2012-02-11)
 - 0.1-1: initial version of the native CloudRAID RAID5 backend (2012-02-05)
+
+znc-cap-sasl
+------------
+
+- 0.1-1: initial version of the ZNC cap_sasl module (2012-02-21)
