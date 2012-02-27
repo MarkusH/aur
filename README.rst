@@ -15,6 +15,7 @@ cloudraid-native
 inyokaedit
 ----------
 
+- 0.2.0-2 Small fixes and added missing dependency (2012-02-27)
 - 0.2.0-1 initial version for the Inyoka markup offline editor (2012-02-27)
 
 znc-cap-sasl

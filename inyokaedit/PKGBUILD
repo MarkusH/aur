@@ -1,14 +1,14 @@
 # Maintainer: Markus Holtermann <aur@markusholtermann.eu>
 pkgname=inyokaedit
 pkgver=0.2.0
-pkgrel=1
-pkgdesc='InyokaEdit is a small markup editor for Inyoka articles (http://ubuntuusers.de/inyoka/). It includes syntax highlighting, offline preview, downloading raw text of existing articles...'
+pkgrel=2
+pkgdesc='A small markup editor for Inyoka articles (http://ubuntuusers.de/inyoka/). It includes syntax highlighting, offline preview, downloading raw text of existing articles...'
 arch=('i686' 'x86_64')
 url='https://launchpad.net/inyokaedit/'
 license=('GPL3')
-depends=('qt' 'hunspell')
+depends=('hunspell' 'qtwebkit')
 makedepends=('bzr' 'gcc')
-source=("Makefile.patch")
+source=('Makefile.patch')
 md5sums=('3b8c818eab61fa764ac7fb26ce30642e')
 
 _bzr_url="http://bazaar.launchpad.net/~elthoro/inyokaedit/$pkgver"
@@ -29,7 +29,6 @@ package() {
     cp -rf images $pkgdir/usr/share/$pkgname/
     cp -rf lang $pkgdir/usr/share/$pkgname/
     cp man/de/man1/inyokaedit.1.gz $pkgdir/usr/share/man/de/man1/
-    cp inyokaedit $pkgdir/usr/share/$pkgname/
     cp GetInyokaStyles $pkgdir/usr/share/$pkgname/
-    ln -s /usr/share/$pkgname/inyokaedit $pkgdir/usr/bin/inyokaedit
+    cp inyokaedit $pkgdir/usr/bin/inyokaedit
 }
