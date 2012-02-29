@@ -15,10 +15,16 @@ cloudraid-native
 inyokaedit
 ----------
 
+- 0.2.0-5 Add conflicts information in order to support the inyokaedit-bzr package (2012-03-01)
 - 0.2.0-4 Add wget to the dependencies for inyokaedit-0.2.0-4 (2012-02-28)
 - 0.2.0-3 Remove the makefile patch to make the package build on i686 (2012-02-28)
 - 0.2.0-2 Small fixes and added missing dependency (2012-02-27)
 - 0.2.0-1 initial version for the Inyoka markup offline editor (2012-02-27)
+
+inyokaedit-bzr
+--------------
+
+- 20120301-1 initial version for the Inyoka markup offline editor build from trunk (2012-03-01)
 
 znc-cap-sasl
 ------------
