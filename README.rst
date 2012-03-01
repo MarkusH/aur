@@ -24,6 +24,7 @@ inyokaedit
 inyokaedit-bzr
 --------------
 
+- 20120301-2 compress the man pages with highest compression rate (2012-03-01)
 - 20120301-1 initial version for the Inyoka markup offline editor build from trunk (2012-03-01)
 
 znc-cap-sasl
