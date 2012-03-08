@@ -16,6 +16,8 @@ cloudraid-native
 inyokaedit
 ----------
 
+- 0.3.1-1 Update to 0.3.1. Changed the way the source code is downloaded from
+  bazaar to simple tar.gz files.  (2012-03-04)
 - 0.3.0-1 Update to 0.3.0 (2012-03-04)
 - 0.2.0-5 Add conflicts information in order to support the inyokaedit-bzr
   package (2012-03-01)
