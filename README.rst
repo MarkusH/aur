@@ -16,8 +16,9 @@ cloudraid-native
 inyokaedit
 ----------
 
+- 0.3.1-2 Install the desktop file (2012-03-09)
 - 0.3.1-1 Update to 0.3.1. Changed the way the source code is downloaded from
-  bazaar to simple tar.gz files.  (2012-03-04)
+  bazaar to simple tar.gz files.  (2012-03-08)
 - 0.3.0-1 Update to 0.3.0 (2012-03-04)
 - 0.2.0-5 Add conflicts information in order to support the inyokaedit-bzr
   package (2012-03-01)
@@ -31,6 +32,7 @@ inyokaedit
 inyokaedit-bzr
 --------------
 
+- 20120309-1 Install the desktop file (2012-03-09)
 - 20120304-1 Adjust install commands to recent changes (2012-03-04)
 - 20120301-2 Compress the man pages with highest compression rate
   (2012-03-01)
