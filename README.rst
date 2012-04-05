@@ -32,6 +32,7 @@ inyokaedit
 inyokaedit-bzr
 --------------
 
+- 20120405-1 use the ``make install`` commmand (2012-04-05)
 - 20120404-1 qmake detects the correct hunspell library (2012-04-04)
 - 20120309-1 Install the desktop file (2012-03-09)
 - 20120304-1 Adjust install commands to recent changes (2012-03-04)
