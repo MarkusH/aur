@@ -16,6 +16,7 @@ cloudraid-native
 inyokaedit
 ----------
 
+- 0.4.0-2 gcc and pkg-config must not be part of makedepends (2012-04-20)
 - 0.4.0-1 New release (2012-04-20)
 - 0.3.1-2 Install the desktop file (2012-03-09)
 - 0.3.1-1 Update to 0.3.1. Changed the way the source code is downloaded from
@@ -33,6 +34,7 @@ inyokaedit
 inyokaedit-bzr
 --------------
 
+- 20120420-2 gcc and pkg-config must not be part of makedepends (2012-04-20)
 - 20120420-1 Add dependency to pkg-config (2012-04-20)
 - 20120405-1 use the ``make install`` commmand (2012-04-05)
 - 20120404-1 qmake detects the correct hunspell library (2012-04-04)
