@@ -16,6 +16,7 @@ cloudraid-native
 inyokaedit
 ----------
 
+- 0.7.0-1 Update to latest stable (2012-11-10)
 - 0.6.0-1 Update to latest stable (2012-09-07)
 - 0.5.0-1 Update to latest stable (2012-07-21)
 - 0.4.0-2 gcc and pkg-config must not be part of makedepends (2012-04-20)
