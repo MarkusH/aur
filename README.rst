@@ -16,6 +16,7 @@ cloudraid-native
 inyokaedit
 ----------
 
+- 0.8.0-1 Update to latest stable (2013-01-27)
 - 0.7.0-1 Update to latest stable (2012-11-10)
 - 0.6.0-1 Update to latest stable (2012-09-07)
 - 0.5.0-1 Update to latest stable (2012-07-21)
