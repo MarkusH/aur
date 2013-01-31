@@ -1,0 +1,40 @@
+# Maintainer: Markus Holtermann <aur@markusholtermann.eu>
+pkgname=nm-applet-icons-small
+pkgver=0.1
+pkgrel=1
+pkgdesc='Small NM icons (e.g. for awesome)'
+arch=('i686' 'x86_64')
+url='https://launchpad.net/inyokaedit/'
+license=('GPL')
+depends=('network-manager-applet')
+makedepends=('imagemagick')
+source=()
+md5sums=()
+install=nm-applet-icons-small.install
+
+_containsElement () {
+    local e
+    for e in "${@:2}"; do
+        [[ "$e" == "$1" ]] && return 0;
+    done
+    return 1
+}
+
+_existing=('nm-device-wired.png' 'nm-no-connection.png' 'nm-vpn-standalone-lock.png')
+
+build() {
+    mkdir -p "$srcdir/$pkgname-$pkgver"
+    cd "$srcdir/$pkgname-$pkgver"
+    for f in `find "/usr/share/icons/hicolor/22x22/apps/" -name "nm-*.png"` ; do
+        bn=`basename ${f}`
+        [[ `_containsElement "${bn}" "${_existing[@]}"` == "1" ]] && continue
+        echo "${f} --> ${bn}"
+        convert "${f}" -resize 16x "${bn}"
+    done
+}
+
+package() {
+    tdir=$pkgdir/usr/share/icons/hicolor/16x16/apps/
+    mkdir -p $tdir
+    install -v -D $srcdir/$pkgname-$pkgver/*.png $tdir
+}

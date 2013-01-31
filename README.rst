@@ -13,6 +13,7 @@ cloudraid-native
 - 0.1-1: Initial version of the native CloudRAID RAID5 backend
   (2012-02-05)
 
+
 inyokaedit
 ----------
 
@@ -35,6 +36,7 @@ inyokaedit
 - 0.2.0-1 initial version for the Inyoka markup offline editor
   (2012-02-27)
 
+
 inyokaedit-bzr
 --------------
 
@@ -50,6 +52,14 @@ inyokaedit-bzr
   (2012-03-01)
 - 20120301-1 Initial version for the Inyoka markup offline editor build
   from trunk (2012-03-01)
+
+
+nm-applet-icons-small
+---------------------
+
+- 0.1-1 Initial version of the nm-applet-icons-small package. It creates the
+  small 16x16 icons on-the-fly (2013-01-31)
+
 
 znc-cap-sasl
 ------------
