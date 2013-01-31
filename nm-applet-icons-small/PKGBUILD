@@ -36,5 +36,5 @@ build() {
 package() {
     tdir=$pkgdir/usr/share/icons/hicolor/16x16/apps/
     mkdir -p $tdir
-    install -v -D $srcdir/$pkgname-$pkgver/*.png $tdir
+    install -D $srcdir/$pkgname-$pkgver/*.png $tdir
 }
