@@ -57,6 +57,7 @@ inyokaedit-bzr
 nm-applet-icons-small
 ---------------------
 
+- 0.1-2 Fix link (2013-01-31)
 - 0.1-1 Initial version of the nm-applet-icons-small package. It creates the
   small 16x16 icons on-the-fly (2013-01-31)
 

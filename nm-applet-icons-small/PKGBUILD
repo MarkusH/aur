@@ -1,10 +1,10 @@
 # Maintainer: Markus Holtermann <aur@markusholtermann.eu>
 pkgname=nm-applet-icons-small
 pkgver=0.1
-pkgrel=1
+pkgrel=2
 pkgdesc='Small NM icons (e.g. for awesome)'
 arch=('i686' 'x86_64')
-url='https://launchpad.net/inyokaedit/'
+url=''
 license=('GPL')
 depends=('network-manager-applet')
 makedepends=('imagemagick')
