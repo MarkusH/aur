@@ -1,0 +1,7 @@
+# example configuration file
+
+HADOOP_USERNAME="hadoop"
+HADOOP_CONF_DIR=/etc/hadoop
+HADOOP_LOG_DIR=/tmp/hadoop/log
+HADOOP_SLAVES=/etc/hadoop/slaves
+HADOOP_PID_DIR=/tmp/hadoop/run

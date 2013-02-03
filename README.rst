@@ -14,6 +14,13 @@ cloudraid-native
   (2012-02-05)
 
 
+hadoop
+------
+
+- 1.1.1-1: First attempt to make a system-wide Hadoop installation.
+  (2013-02-03)
+
+
 inyokaedit
 ----------
 
