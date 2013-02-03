@@ -3,7 +3,7 @@
 # Contributor: Mantas Vidutis <mantas.a.vidutis-at-gmail.com>
 pkgname=hadoop
 pkgver=1.1.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Hadoop - MapReduce implementation and distributed filesystem"
 arch=('i686' 'x86_64')
 url="http://hadoop.apache.org"

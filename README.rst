@@ -17,6 +17,7 @@ cloudraid-native
 hadoop
 ------
 
+- 1.1.1-2: Small fixup regarding the SSH key pair handling (2013-02-03)
 - 1.1.1-1: First attempt to make a system-wide Hadoop installation.
   (2013-02-03)
 
