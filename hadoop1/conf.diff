@@ -1,15 +1,30 @@
 diff -ru conf/core-site.xml hadoop/core-site.xml
 --- conf/core-site.xml	2012-09-29 23:48:33.965947356 +0800
 +++ hadoop/core-site.xml	2012-09-29 23:48:34.085947357 +0800
-@@ -4,5 +4,8 @@
+@@ -4,5 +4,22 @@
  <!-- Put site-specific property overrides in this file. -->
  
  <configuration>
 -
-+     <property>
-+         <name>fs.default.name</name>
-+         <value>hdfs://localhost:9000</value>
-+     </property>
++	<property>
++		<name>dfs.permissions.supergroup</name>
++		<value>hadoop</value>
++	</property>
++	<property>
++		<name>dfs.replication</name>
++		<value>1</value>
++	</property>
++	<property>
++		<name>dfs.web.ugi</name>
++		<value>hadoop,hadoop</value>
++	</property>
++	<!--
++	<property>
++		<name>dfs.permissions</name>
++		<value>true</value>
++	</property>
++	-->
+ </configuration>
  </configuration>
 diff -ru conf/hadoop-env.sh hadoop/hadoop-env.sh
 --- conf/hadoop-env.sh	2012-09-29 23:48:33.965947356 +0800
