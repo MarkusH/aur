@@ -1,0 +1,103 @@
+# Maintainer: Markus Holtermann <aur@markusholtermann.eu>
+# Contributor: Tianjiao Yin <ytj000@gmail.com>
+# Contributor: Mantas Vidutis <mantas.a.vidutis-at-gmail.com>
+pkgname=hadoop0
+pkgver=0.22.0
+pkgrel=1
+pkgdesc="Hadoop - MapReduce implementation and distributed filesystem"
+arch=('i686' 'x86_64')
+url="http://hadoop.apache.org"
+license=('apache')
+depends=('java-environment' 'openssh')
+install=hadoop.install
+source=(
+"http://www.eng.lsu.edu/mirrors/apache/hadoop/common/hadoop-$pkgver/hadoop-$pkgver.tar.gz"
+"hadoop.profile"
+"conf.diff"
+"hadoop-rc"
+"hadoop-conf"
+"hadoop-namenode.service"
+"hadoop-datanode.service"
+"hadoop-secondarynamenode.service"
+"hadoop-jobtracker.service"
+"hadoop-tasktracker.service"
+)
+conflicts=("hadoop1")
+backup=(
+etc/conf.d/hadoop
+etc/profile.d/hadoop.sh
+etc/hadoop/capacity-scheduler.xml
+etc/hadoop/configuration.xsl
+etc/hadoop/core-site.xml
+etc/hadoop/fair-scheduler.xml
+etc/hadoop/hadoop-env.sh
+etc/hadoop/hadoop-policy.xml
+etc/hadoop/hdfs-site.xml
+etc/hadoop/log4j.properties
+etc/hadoop/mapred-site.xml
+etc/hadoop/masters
+etc/hadoop/slaves
+etc/hadoop/ssl-client.xml.example
+etc/hadoop/ssl-server.xml.example
+etc/hadoop/taskcontroller.cfg
+)
+
+_usr_lib=$pkgdir/usr/lib/
+_hadoop_real_home=$_usr_lib/hadoop-$pkgver
+_hadoop_link_home=$_usr_lib/hadoop
+
+if [ "$CARCH" = "i686" ]; then
+    options=(!strip)
+fi
+
+compile() {
+  cd $srcdir/hadoop-$pkgver
+  msg "Cleaning..."
+  ant clean || return 1
+
+  msg "Patching..."
+  sed -i "s/${_devver}/${pkgver}/" build.xml
+  sed -i "s|<ivysettings>|<ivysettings>\n<caches defaultCacheDir=\"${srcdir}/ivy_cache\"/>|" ivy/ivysettings.xml
+
+  msg "Building..."
+  ant -Dcompile.native=true bin-package || return 1
+}
+
+package() {
+  mkdir -p $_usr_lib $pkgdir/usr/lib/systemd/system
+  cp -r $srcdir/hadoop-$pkgver $_usr_lib
+
+  install -Dm644 ${srcdir}/hadoop-conf ${pkgdir}/etc/conf.d/hadoop
+  install -Dm755 ${srcdir}/hadoop-rc ${pkgdir}/etc/rc.d/hadoop
+  install -Dm755 ${srcdir}/hadoop.profile ${pkgdir}/etc/profile.d/hadoop.sh
+  install -Dm644 ${srcdir}/hadoop-*.service ${pkgdir}/usr/lib/systemd/system/
+
+  # we do not use soft link because we need put configures in backup array,
+  # in order to preserve the conf when upgrade package.
+  cp $_hadoop_real_home/conf $pkgdir/etc/hadoop -r
+  mv $_hadoop_real_home/conf $_hadoop_real_home/orig_conf
+
+  cd $pkgdir/etc/hadoop
+  patch -p 1 < $srcdir/conf.diff
+
+  mkdir -p $pkgdir/usr/bin
+  echo -e '#!/bin/sh\n\n/usr/lib/hadoop/bin/hadoop "$@"' > $pkgdir/usr/bin/hadoop
+  chmod 755 $pkgdir/usr/bin/hadoop
+
+  cd $_usr_lib
+  ln -s hadoop-$pkgver hadoop
+
+  chown -R hadoop:hadoop ${pkgdir}/etc/hadoop/
+}
+
+md5sums=('a51bd89bde8eb617cd29d1fa59862fbf'
+         '77fad322bff1877b0c5b4e6d693c979a'
+         '0b041e595c0e57eb9fb9fe9db76a8c22'
+         'affabe5cbf764c83125ac088ee6ded33'
+         '7eda04beff6bdd8582fd064e7f75a284'
+         '335fc6db86cb994165d77305a9f296cb'
+         'e4ba7b7e5efe631bb2cf34ba0ff61d96'
+         'fac6cd92c6ef13361e8f59f89c54d150'
+         '98a515dcb75db1b8614825effd504df0'
+         'ae95e9aa43636879c035c6a653c95326')
+

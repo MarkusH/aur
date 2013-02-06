@@ -14,9 +14,21 @@ cloudraid-native
   (2012-02-05)
 
 
-hadoop
-------
+hadoop0
+-------
 
+- 0.22.0-1: Initial Hadoop0 package similar to hadoop1-1.1.1-3 (2013-02-06)
+
+
+hadoop1
+-------
+
+- 1.1.1-3: Since the start-all.sh script inside of Hadoop may cause weird
+  constrains between running services (the jobtracker won't start, because the
+  datanode hasn't been up when the jobtracker has been started), I added
+  separate Systemd unit files for each Hadoop daemon. Since they somehow depend
+  on each other, you can just start the tasktracker which will start all the
+  other services as well (2013-02-06)
 - 1.1.1-2: Small fixup regarding the SSH key pair handling (2013-02-03)
 - 1.1.1-1: First attempt to make a system-wide Hadoop installation.
   (2013-02-03)

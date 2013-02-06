@@ -1,0 +1,13 @@
+[Unit]
+Description=Hadoop Datanode
+Requires=hadoop-namenode.service
+After=hadoop-namenode.service
+
+[Service]
+EnvironmentFile=/etc/conf.d/hadoop
+ExecStart=/usr/lib/hadoop-0.22.0/bin/hdfs datanode
+User=hadoop
+Group=hadoop
+
+[Install]
+WantedBy=multi-user.target
