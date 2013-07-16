@@ -37,6 +37,7 @@ hadoop1
 inyokaedit
 ----------
 
+- 0.10.0-1 Update to latest stable; use qmake-qt4 (2013-07-16)
 - 0.9.0-1 Update to latest stable (2013-04-26)
 - 0.8.0-1 Update to latest stable (2013-01-27)
 - 0.7.0-1 Update to latest stable (2012-11-10)
@@ -61,6 +62,7 @@ inyokaedit
 inyokaedit-bzr
 --------------
 
+- 20130716-1 Update to latest stable; use qmake-qt4 (2013-07-16)
 - 20120907-1 Update to latest stable (2012-09-07)
 - 20120721-1 Update to latest stable (2012-07-21)
 - 20120420-2 gcc and pkg-config must not be part of makedepends (2012-04-20)
