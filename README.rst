@@ -37,6 +37,7 @@ hadoop1
 inyokaedit
 ----------
 
+- 0.11.0-1 Update to latest stable (2013-10-04)
 - 0.10.0-1 Update to latest stable; use qmake-qt4 (2013-07-16)
 - 0.9.0-1 Update to latest stable (2013-04-26)
 - 0.8.0-1 Update to latest stable (2013-01-27)
