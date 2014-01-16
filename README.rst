@@ -86,6 +86,12 @@ nm-applet-icons-small
   small 16x16 icons on-the-fly (2013-01-31)
 
 
+taskd
+-----
+
+- 1.0.0-3 Initial really working version (2014-01-16)
+
+
 znc-cap-sasl
 ------------
 
