@@ -1,14 +1,14 @@
 # Maintainer: Markus Holtermann <aur@markusholtermann.eu>
 pkgname=acme-tiny-git
-pkgver=r75.8689b92
-pkgrel=2
+pkgver=r77.c550a61
+pkgrel=1
 pkgdesc=""
 arch=('x86' 'x86_64')
 url="https://github.com/MarkusH/acme-tiny/tree/systemd"
 license=('MIT')
 groups=()
 depends=()
-makedepends=('git') # 'bzr', 'git', 'mercurial' or 'subversion'
+makedepends=('git')
 provides=("${pkgname%-git}")
 conflicts=("${pkgname%-git}")
 replaces=()
@@ -18,20 +18,16 @@ source=('acme-tiny::git+https://github.com/MarkusH/acme-tiny.git#branch=systemd'
 noextract=()
 md5sums=('SKIP')
 
-# Please refer to the 'USING VCS SOURCES' section of the PKGBUILD man page for
-# a description of each element in the source array.
-
 pkgver() {
-	cd "$srcdir/${pkgname%-git}"
-    # Git, no tags available
-	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    cd "$srcdir/${pkgname%-git}"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 package() {
-	cd "$srcdir/${pkgname%-git}"
+    cd "$srcdir/${pkgname%-git}"
     install -m 0700 -d $pkgdir/etc/acme-tiny/
-    install systemd/example.conf $pkgdir/etc/acme-tiny/example.conf
-    install -m 0744 -D acme_tiny.py $pkgdir/usr/bin/acme-tiny
+    install -m 0644 systemd/example.conf $pkgdir/etc/acme-tiny/example.conf
+    install -m 0544 -D acme_tiny.py $pkgdir/usr/bin/acme-tiny
     install -d $pkgdir/usr/lib/systemd/system/
-    install systemd/acme-tiny@.service systemd/acme-tiny@.timer $pkgdir/usr/lib/systemd/system/
+    install -m 0644 systemd/acme-tiny@.service systemd/acme-tiny@.timer $pkgdir/usr/lib/systemd/system/
 }
