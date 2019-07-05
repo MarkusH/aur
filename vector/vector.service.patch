@@ -1,0 +1,13 @@
+--- a/distribution/systemd/vector.service	2019-07-02 10:09:44.000000000 +0200
++++ b/distribution/systemd/vector.service	2019-07-02 10:09:44.000000000 +0200
+@@ -6,8 +6,8 @@
+ 
+ [Service]
+ User=vector
+-Group=vector
+-ExecStart=/opt/vector/bin/vector --config=/etc/vector/vector.toml
++Group=log
++ExecStart=/usr/bin/vector --config=/etc/vector/vector.toml
+ ExecReload=/bin/kill -HUP $MAINPID
+ Restart=no
+ StandardOutput=syslog

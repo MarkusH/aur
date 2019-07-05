@@ -1,0 +1,54 @@
+pkgname=vector
+pkgver=0.3.0
+pkgrel=1
+pkgdesc="A High-Performance, Logs, Metrics, & Events Router"
+arch=("x86_64")
+url="https://vector.dev/"
+license=("Apache")
+depends=()
+makedepends=('cargo')
+backup=("etc/vector/vector.toml")
+source=(
+    "https://github.com/timberio/vector/archive/v$pkgver.tar.gz"
+    "vector.service.patch"
+    "vector.sysusers"
+    "vector.tmpfiles"
+)
+sha256sums=(
+    "b7785173cdf93de7be581e99cbf369faacd88afe21e68e7b96facf4753e0acbf"
+    "bf2bfcad46460b656676a5bf3d78c7f1530d54fd7069a16d03ce8db8c9d15a5b"
+    "eb2c2d8ac951871b57c74eb009e0f47b769c5eea871b89ab0bae457f7ff046c3"
+    "73a14abd52c40adfd3cea3097375dc3996256d611581919e198dc8a1d67e9662"
+)
+
+prepare() {
+	cd "$pkgname-$pkgver"
+    patch -p1 < ../vector.service.patch
+}
+
+build() {
+	cd "$pkgname-$pkgver"
+    # cargo build --release --locked
+    cargo build --release
+}
+
+# check() {
+# 	cd "$pkgname-$pkgver"
+#     # cargo test --release --locked
+#     cargo test --release
+# }
+
+package() {
+	cd "$pkgname-$pkgver"
+    install -Dm 755 -t "${pkgdir}/usr/bin" target/release/${pkgname}
+    install -Dm 600 -t "${pkgdir}/etc/${pkgname}" config/${pkgname}.toml
+    install -Dm 644 -t "${pkgdir}/usr/lib/systemd/system" distribution/systemd/${pkgname}.service
+    install -dm 700 "${pkgdir}/var/lib/${pkgname}"
+    install -dm 755 "${pkgdir}/usr/share/doc" "${pkgdir}/usr/share/${pkgname}"
+    cp -rv docs "${pkgdir}/usr/share/doc/${pkgname}"
+    cp -rv config "${pkgdir}/usr/share/${pkgname}/"
+
+    cd "${srcdir}"
+    install -Dm 644 ${pkgname}.sysusers "${pkgdir}/usr/lib/sysusers.d/${pkgname}.conf"
+    install -Dm 644 ${pkgname}.tmpfiles "${pkgdir}/usr/lib/tmpfiles.d/${pkgname}.conf"
+}

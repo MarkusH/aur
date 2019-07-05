@@ -1,0 +1,2 @@
+f	/etc/vector/vector.toml	0600 vector log
+d	/var/lib/vector		0700 vector log
