@@ -1,6 +1,6 @@
 # Maintainer: Markus Holtermann <aur@markusholtermann.eu>
 pkgname=acme-tiny-git
-pkgver=r86.0da4040
+pkgver=r178.e05f815
 pkgrel=1
 pkgdesc=""
 arch=('x86' 'x86_64')
